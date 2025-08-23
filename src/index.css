@@ -1,0 +1,61 @@
+@import "tailwindcss";
+
+:root {
+  color-scheme: light dark;
+  --bg: #0b0b0e;
+  --fg: #e7e7ea;
+  --card: #16161c;
+  --muted: #8b8b94;
+  --brand: #6b9cff;
+}
+
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, 'Apple Color Emoji', 'Segoe UI Emoji';
+  background: var(--bg);
+  color: var(--fg);
+}
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 24px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 16px;
+}
+
+.card {
+  grid-column: span 6;
+  background: var(--card);
+  border-radius: 14px;
+  padding: 16px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+.card h3 { margin: 0 0 8px; }
+.row { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+button, input, select {
+  padding: 8px 12px;
+  border-radius: 10px;
+  border: 1px solid #2a2a33;
+  background: #1b1b22;
+  color: var(--fg);
+}
+button.primary { background: var(--brand); border-color: var(--brand); color: #0b0b0e; }
+.badge { padding: 2px 8px; border-radius: 9999px; background: #22222a; color: var(--muted); font-size: 12px; }
+ul { margin: 8px 0 0; padding-left: 18px; }
+code { background: #22222a; padding: 2px 6px; border-radius: 6px; }
+.small { color: var(--muted); font-size: 12px; }
+hr { border: none; border-top: 1px solid #2a2a33; margin: 12px 0; }
+.header {
+  display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px;
+}
+.theme-toggle { cursor: pointer; }
+kbd {
+  background: #22222a; border: 1px solid #2a2a33; padding: 2px 6px; border-radius: 6px; font-size: 12px;
+}
