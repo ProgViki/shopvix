@@ -59,3 +59,46 @@ hr { border: none; border-top: 1px solid #2a2a33; margin: 12px 0; }
 kbd {
   background: #22222a; border: 1px solid #2a2a33; padding: 2px 6px; border-radius: 6px; font-size: 12px;
 }
+
+
+/* Custom styles */
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+}
+
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.line-clamp-3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Smooth transitions for all interactive elements */
+button, a {
+  transition: all 0.2s ease;
+}
+
+/* Custom scrollbar for category filters */
+.category-scroll::-webkit-scrollbar {
+  height: 4px;
+}
+
+.category-scroll::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+.category-scroll::-webkit-scrollbar-thumb {
+  background: #c5c5c5;
+  border-radius: 4px;
+}
+
+.category-scroll::-webkit-scrollbar-thumb:hover {
+  background: #a8a8a8;
+}
