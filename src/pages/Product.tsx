@@ -116,7 +116,7 @@ const HeartIcon = ({ filled }: { filled: boolean }) => (
   </svg>
 );
 
-const EcommerceApp = () => {
+const ProductPage = () => {
   const [products, setProducts] = useState<Product[]>([]);
   const [filteredProducts, setFilteredProducts] = useState<Product[]>([]);
   const [cart, setCart] = useState<Product[]>([]);
@@ -338,4 +338,4 @@ const EcommerceApp = () => {
   );
 };
 
-export default EcommerceApp;
+export default ProductPage;
