@@ -14,7 +14,12 @@ const DemoModal: React.FC<Props> = ({ open, onClose }) => {
   const handleSubmit = async (values: any) => {
     setLoading(true);
     try {
-      const res = await fetch("http://localhost:8000/demo", {
+      // ✅ Use env variable instead of hardcoding localhost
+      const API_BASE =
+        import.meta.env.VITE_API_BASE_URL ||
+        (import.meta.env.DEV ? "http://localhost:8000" : "");
+
+      const res = await fetch(`${API_BASE}/demo`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(values),
@@ -55,7 +60,9 @@ const DemoModal: React.FC<Props> = ({ open, onClose }) => {
         <Form.Item
           name="email"
           label="Email"
-          rules={[{ required: true, type: "email", message: "Please enter a valid email" }]}
+          rules={[
+            { required: true, type: "email", message: "Please enter a valid email" },
+          ]}
         >
           <Input placeholder="Enter your email" />
         </Form.Item>
@@ -68,21 +75,7 @@ const DemoModal: React.FC<Props> = ({ open, onClose }) => {
           <Input placeholder="Enter your phone number" />
         </Form.Item>
 
-        {/* ✅ Changed Input to Select */}
-        {/* <Form.Item
-          name="product"
-          label="Product of Interest"
-          rules={[{ required: true, message: "Please select a product" }]}
-        >
-          <Select placeholder="Select a product">
-            <Select.Option value="property-management">Property Management</Select.Option>
-            <Select.Option value="crm">Real Estate CRM</Select.Option>
-            <Select.Option value="tenant-portal">Tenant Portal</Select.Option>
-            <Select.Option value="investment-tool">Investment Tool</Select.Option>
-          </Select>
-        </Form.Item> */}
-
-         {/* ✅ Now using ProductType enum */}
+        {/* ✅ ProductType Select */}
         <Form.Item
           name="product"
           label="Product of Interest"
