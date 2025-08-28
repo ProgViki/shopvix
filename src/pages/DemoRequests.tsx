@@ -19,21 +19,39 @@ const DemoRequests: React.FC = () => {
   const fetchRequests = async () => {
     setLoading(true);
     try {
+      // Always check what value is being read
       const API_BASE = import.meta.env.VITE_API_BASE_URL;
+      console.log("API_BASE:", API_BASE); // 🔍 Debug
 
-      const res = await fetch(`${API_BASE}/api/demo`);
+      if (!API_BASE) {
+        throw new Error("VITE_API_BASE_URL is not defined in environment variables");
+      }
+
+      const res = await fetch(`${API_BASE}/api/demo`, {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+
+      if (!res.ok) {
+        throw new Error(`API error: ${res.status} ${res.statusText}`);
+      }
 
       const data = await res.json();
 
       // Check structure
-      setRequests(data.data || data); 
+      setRequests(data.data || data);
     } catch (error) {
-      console.error("Error fetching requests", error);
+      console.error("Error fetching requests:", error);
+    } finally {
+      setLoading(false);
     }
-    setLoading(false);
   };
+
   fetchRequests();
 }, []);
+
 
 
   const columns = [
