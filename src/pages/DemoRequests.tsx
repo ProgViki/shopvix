@@ -19,7 +19,7 @@ const DemoRequests: React.FC = () => {
     const fetchRequests = async () => {
       setLoading(true);
       try {
-        const res = await fetch("http://localhost:5000/api/demo-requests");
+        const res = await fetch("http://localhost:8000/api/demo");
         const data = await res.json();
         setRequests(data.data);
       } catch (error) {

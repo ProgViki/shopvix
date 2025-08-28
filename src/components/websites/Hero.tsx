@@ -1,30 +1,40 @@
 import React, { useState } from "react";
+import { Button } from "antd";
+import { motion } from "framer-motion";
 import DemoModal from "./DemoModal";
 
 const Hero: React.FC = () => {
   const [openModal, setOpenModal] = useState(false);
 
   return (
-    <section className="bg-gray-50 h-[80vh] flex flex-col justify-center items-center text-center">
-      <h2 className="text-4xl md:text-6xl font-bold text-gray-900">
+    <section className="bg-gray-50 h-[80vh] flex flex-col justify-center items-center text-center px-4">
+      <motion.h2
+        className="text-4xl md:text-6xl font-bold text-gray-900"
+        initial={{ opacity: 0, y: -30 }}
+        animate={{ opacity: 1, y: 0 }}
+      >
         Find Your Dream Property
-      </h2>
-      <p className="mt-4 text-lg text-gray-600 max-w-xl">
+      </motion.h2>
+
+      <motion.p
+        className="mt-4 text-lg text-gray-600 max-w-xl"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 0.3 }}
+      >
         The easiest way to buy, sell, or rent properties with full professional support.
-      </p>
+      </motion.p>
+
       <div className="mt-6 flex gap-4">
-        <button className="px-6 py-3 bg-blue-600 text-white rounded-lg shadow hover:bg-blue-700 transition">
+        <Button type="primary" size="large">
           Get Started
-        </button>
-        <button
-          onClick={() => setOpenModal(true)}
-          className="px-6 py-3 bg-white border border-blue-600 text-blue-600 rounded-lg shadow hover:bg-blue-50 transition"
-        >
+        </Button>
+        <Button type="default" size="large" onClick={() => setOpenModal(true)}>
           Book a Demo
-        </button>
+        </Button>
       </div>
 
-      {openModal && <DemoModal onClose={() => setOpenModal(false)} />}
+      <DemoModal open={openModal} onClose={() => setOpenModal(false)} />
     </section>
   );
 };
