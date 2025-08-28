@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import { Modal, Form, Input, Button, message } from "antd";
+import { Modal, Form, Input, Button, message, Select } from "antd";
+import { ProductType, type ProductTypeValues } from "../../types/product";
 
 interface Props {
   open: boolean;
@@ -13,7 +14,7 @@ const DemoModal: React.FC<Props> = ({ open, onClose }) => {
   const handleSubmit = async (values: any) => {
     setLoading(true);
     try {
-      const res = await fetch("http://localhost:8000/api/demo", {
+      const res = await fetch("http://localhost:8000/demo", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(values),
@@ -67,12 +68,33 @@ const DemoModal: React.FC<Props> = ({ open, onClose }) => {
           <Input placeholder="Enter your phone number" />
         </Form.Item>
 
+        {/* ✅ Changed Input to Select */}
+        {/* <Form.Item
+          name="product"
+          label="Product of Interest"
+          rules={[{ required: true, message: "Please select a product" }]}
+        >
+          <Select placeholder="Select a product">
+            <Select.Option value="property-management">Property Management</Select.Option>
+            <Select.Option value="crm">Real Estate CRM</Select.Option>
+            <Select.Option value="tenant-portal">Tenant Portal</Select.Option>
+            <Select.Option value="investment-tool">Investment Tool</Select.Option>
+          </Select>
+        </Form.Item> */}
+
+         {/* ✅ Now using ProductType enum */}
         <Form.Item
           name="product"
           label="Product of Interest"
-          rules={[{ required: true, message: "Please enter the product of interest" }]}
+          rules={[{ required: true, message: "Please select a product" }]}
         >
-          <Input placeholder="e.g., Property Management" />
+          <Select placeholder="Select a product">
+            {Object.values(ProductType).map((value: ProductTypeValues) => (
+              <Select.Option key={value} value={value}>
+                {value.replace("_", " ")}
+              </Select.Option>
+            ))}
+          </Select>
         </Form.Item>
 
         <Form.Item name="notes" label="Notes (Optional)">
