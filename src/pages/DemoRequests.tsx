@@ -16,19 +16,25 @@ const DemoRequests: React.FC = () => {
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    const fetchRequests = async () => {
-      setLoading(true);
-      try {
-        const res = await fetch("http://localhost:8000/api/demo");
-        const data = await res.json();
-        setRequests(data.data);
-      } catch (error) {
-        console.error("Error fetching requests", error);
-      }
-      setLoading(false);
-    };
-    fetchRequests();
-  }, []);
+  const fetchRequests = async () => {
+    setLoading(true);
+    try {
+      const API_BASE = import.meta.env.VITE_API_BASE_URL;
+
+      const res = await fetch(`${API_BASE}/api/demo`);
+
+      const data = await res.json();
+
+      // Check structure
+      setRequests(data.data || data); 
+    } catch (error) {
+      console.error("Error fetching requests", error);
+    }
+    setLoading(false);
+  };
+  fetchRequests();
+}, []);
+
 
   const columns = [
     { title: "Name", dataIndex: "fullName", key: "fullName" },
