@@ -12,6 +12,7 @@ const DemoModal: React.FC<Props> = ({ onClose }) => {
     product: "",
     notes: "",
   });
+  
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState("");
 
