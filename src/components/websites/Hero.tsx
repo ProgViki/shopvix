@@ -27,15 +27,15 @@ const Hero: React.FC = () => {
 
       <div className="mt-6 flex gap-4">
         <Button
-  type="primary"
-  size="large"
-  onClick={() => {
-    const el = document.getElementById("features");
-    if (el) el.scrollIntoView({ behavior: "smooth" });
-  }}
->
-  Get Started
-</Button>
+          type="primary"
+          size="large"
+          onClick={() => {
+            const el = document.getElementById("features");
+            if (el) el.scrollIntoView({ behavior: "smooth" });
+          }}
+        >
+          Get Started
+        </Button>
         <Button type="default" size="large" onClick={() => setOpenModal(true)}>
           Book a Demo
         </Button>
