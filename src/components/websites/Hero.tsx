@@ -26,7 +26,7 @@ const Hero: React.FC = () => {
       </motion.p>
 
       <div className="mt-6 flex gap-4">
-        <Button type="primary" size="large">
+        <Button type="primary" size="large" onClick={() => window.location.href = '/services'}>
           Get Started
         </Button>
         <Button type="default" size="large" onClick={() => setOpenModal(true)}>
