@@ -27,7 +27,7 @@ const Header: React.FC = () => {
 
       {/* Mobile Drawer */}
       <div className="md:hidden">
-        <Button type="text" icon={<MenuOutlined />} onClick={() => setOpen(true)} className="text-white mr-8 text-xl" />
+        <Button type="text" icon={<MenuOutlined />} onClick={() => setOpen(true)} className="text-white mr-8 text-3xl" />
         <Drawer
           title="Menu"
           placement="right"
