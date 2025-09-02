@@ -8,6 +8,7 @@ import Services from "./pages/Services";
 import Contact from "./pages/Contact";
 import DemoRequests from "./pages/DemoRequests";
 import { ThemeProvider, useTheme } from "./context/ThemeContext";
+import ClaimsDashboard from "./pages/Claims";
 
 const { Content, Footer } = Layout;
 
@@ -36,7 +37,8 @@ const ThemedApp: React.FC = () => {
         <Content>
           <Routes>
             <Route path="/" element={<Hero />} />
-            <Route path="/about" element={<About />} />
+            {/* <Route path="/about" element={<About />} /> */}
+            <Route path="/claims" element={<ClaimsDashboard />} />
             <Route path="/services" element={<Services />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/demo-requests" element={<DemoRequests />} />

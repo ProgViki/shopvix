@@ -10,7 +10,9 @@ const Header: React.FC = () => {
 
   const menuItems = [
     { key: "home", label: <Link to="/">Home</Link> },
-    { key: "about", label: <Link to="/about">About Us</Link> },
+    // { key: "about", label: <Link to="/about">About Us</Link> },
+    { key: "claim", label: <Link to="/claims">Claims</Link> },
+
     { key: "services", label: <Link to="/services">Services</Link> },
     { key: "contact", label: <Link to="/contact">Contact</Link> },
     { key: "demo", label: <Link to="/demo-requests">Demo Requests</Link> },

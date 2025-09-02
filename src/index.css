@@ -102,3 +102,30 @@ button, a {
 .category-scroll::-webkit-scrollbar-thumb:hover {
   background: #a8a8a8;
 }
+
+/* styles/Claims.module.css */
+.claimsDashboard {
+  padding: 24px;
+  background: #f5f5f5;
+  min-height: 100vh;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+  background: white;
+  padding: 16px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.claimsCard {
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.addButton {
+  box-shadow: 0 2px 8px rgba(24, 144, 255, 0.4);
+}
