@@ -1,11 +1,10 @@
+
 export const ProductType = {
-  MIRO_SERVICE_MANAGEMENT: 'MIRO_SERVICE_MANAGEMENT',
-  FOTREX: 'FOTREX',
-  NSOC: 'NSOC',
-  ZMART: 'ZMART',
-  RENEW: 'RENEW',
-  FIELD: 'FIELD',
-  MIRO_OBSERVABILITY: 'MIRO_OBSERVABILITY',
+  MIRO_SERVICE_MANAGEMENT: 'Miro SM',
+  FORTREX: 'Fortrex',
+  ZMART: 'Zmart',
+  MIRO_OBSERVABILITY: 'Miro Observability',
+  FIELD: 'Field',
 } as const;
 
 export type ProductTypeKeys = keyof typeof ProductType;
