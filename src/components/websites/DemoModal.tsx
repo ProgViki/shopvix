@@ -32,7 +32,7 @@ const DemoModal: React.FC<Props> = ({ open, onClose }) => {
         form.resetFields();
         onClose();
       } else {
-        message.error(data.error || "Something went wrong.");
+        message.error(data.error || "Something went wrong, try again.");
       }
     } catch (error) {
       message.error("Server error.");
