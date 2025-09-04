@@ -229,8 +229,8 @@ const ClaimsDashboard: React.FC = () => {
       {error ? (
         <Card>
           <div style={{ textAlign: 'center', padding: '20px' }}>
-            <p>Error loading claims: {error}</p>
-            <Button type="primary" onClick={fetchClaims}>
+            <p>Error loading claims: {error} </p>
+            <Button type="primary" onClick={fetchClaims} className='mt-4'>
               Retry
             </Button>
           </div>
@@ -246,7 +246,7 @@ const ClaimsDashboard: React.FC = () => {
               pageSize: 10,
               showSizeChanger: true,
               showQuickJumper: true,
-              showTotal: (total, range) => 
+              showTotal: (total, range) =>
                 `${range[0]}-${range[1]} of ${total} items`,
             }}
           />

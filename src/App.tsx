@@ -3,7 +3,7 @@ import { Layout, ConfigProvider, theme as antdTheme, Switch } from "antd";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Header from "./components/websites/Header";
 import Hero from "./components/websites/Hero";
-import About from "./pages/About";
+// import About from "./pages/About";
 import Services from "./pages/Services";
 import Contact from "./pages/Contact";
 import DemoRequests from "./pages/DemoRequests";
